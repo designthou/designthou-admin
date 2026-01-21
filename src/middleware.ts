@@ -4,31 +4,20 @@ import { route } from './constants';
 
 export async function middleware(request: NextRequest) {
 	const { supabaseResponse, user } = await updateSession(request);
-
 	const pathname = request.nextUrl.pathname;
 
-	const isPublicRoutes = [route.AUTH.RESET_PASSWORD, route.AUTH.SIGNUP_CONFIRM].some(path => pathname.startsWith(path));
+	const publicPrefixes = [route.AUTH.LOGIN, route.AUTH.SIGNUP, route.AUTH.RESET_PASSWORD, route.AUTH.SIGNUP_CONFIRM, '/favicon.ico'];
 
-	if (isPublicRoutes) {
-		return NextResponse.next();
+	const isPublic = publicPrefixes.some(p => pathname.startsWith(p));
+	if (isPublic) {
+		return supabaseResponse;
 	}
 
-	const isProtectedRoutes = pathname.startsWith(route.ADMIN.ROOT);
-
-	const isAuthRedirectRoutes = [route.AUTH.LOGIN, route.AUTH.SIGNUP].some(path => pathname.startsWith(path));
-
-	if (user && isAuthRedirectRoutes) {
-		return NextResponse.redirect(new URL(route.ADMIN.ROOT, request.url), {
-			headers: supabaseResponse.headers,
-		});
-	}
-
-	if (!user && isProtectedRoutes) {
+	if (!user) {
 		const redirectUrl = new URL(route.AUTH.LOGIN, request.url);
 
-		// add Set-Cookie option when update sessions
-		// 1. Pass response header made by supabase
-		// 2. Pass updated cookie
+		redirectUrl.searchParams.set('next', pathname);
+
 		return NextResponse.redirect(redirectUrl, {
 			headers: supabaseResponse.headers,
 		});
@@ -38,5 +27,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

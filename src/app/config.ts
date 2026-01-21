@@ -2,7 +2,7 @@
 // Config of Visitor Check on GA4
 
 export const SiteConfig = {
-	url: 'https://designthou.com',
+	url: 'https://admin.designthou.com',
 	pathPrefix: '/',
 	title: {
 		default: 'Designthou',

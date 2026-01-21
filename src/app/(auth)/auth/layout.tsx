@@ -31,7 +31,7 @@ export default function RootLayout({
 			<div className="flex flex-col justify-center min-h-screen mx-auto w-full p-4 bg-muted sm:p-8 lg:p-12">
 				<h1 className="mx-auto mt-4 w-fit">
 					<Link
-						href={route.SERVICE.ROOT}
+						href={route.ADMIN.ROOT}
 						className="px-4 py-2 w-full h-full text-2xl text-white font-black font-mono text-center bg-gradient-orange-100 rounded-lg cursor-pointer">
 						Designthou
 					</Link>
