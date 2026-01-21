@@ -16,6 +16,8 @@ export async function middleware(request: NextRequest) {
 	if (!user) {
 		const redirectUrl = new URL(route.AUTH.LOGIN, request.url);
 
+		redirectUrl.searchParams.set('next', pathname);
+
 		return NextResponse.redirect(redirectUrl, {
 			headers: supabaseResponse.headers,
 		});
@@ -25,5 +27,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+	matcher: ['/((?!api|_next|.*\\..*).*)'],
 };
