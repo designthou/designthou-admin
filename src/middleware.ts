@@ -16,8 +16,6 @@ export async function middleware(request: NextRequest) {
 	if (!user) {
 		const redirectUrl = new URL(route.AUTH.LOGIN, request.url);
 
-		redirectUrl.searchParams.set('next', pathname);
-
 		return NextResponse.redirect(redirectUrl, {
 			headers: supabaseResponse.headers,
 		});
