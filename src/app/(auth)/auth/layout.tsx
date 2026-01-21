@@ -11,9 +11,52 @@ export const metadata: Metadata = {
 	description: SiteConfig.subtitle,
 	openGraph: {
 		title: SiteConfig.title.AUTH,
+		description: SiteConfig.subtitle,
+		siteName: 'Designthou',
+		locale: 'ko_KR',
+		type: 'website',
+		url: SiteConfig.url,
+		images: [
+			{
+				url: `${SiteConfig.url}/designthou.png`,
+				width: 1200,
+				height: 630,
+				type: 'image/png',
+			},
+		],
 	},
 	twitter: {
-		title: SiteConfig.title.AUTH,
+		card: 'summary_large_image',
+		title: SiteConfig.title.default,
+		description: 'Designthou - Spatial Content Platform',
+		images: [`${SiteConfig.url}/designthou.png`],
+	},
+	icons: {
+		icon: [
+			{ url: '/admin/favicon.ico', sizes: 'any' },
+			{ url: '/admin/favicon.ico', type: 'image/x-icon' },
+			{ url: '/admin/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+			{ url: '/admin/favicon.svg', type: 'image/svg+xml' },
+		],
+		shortcut: '/admin/favicon.ico',
+		apple: '/admin/apple-touch-icon.png',
+	},
+	manifest: '/admin/site.webmanifest',
+	appleWebApp: {
+		title: 'Designthou Admin',
+		capable: true,
+		statusBarStyle: 'black-translucent',
+	},
+	other: {
+		'msapplication-TileColor': '#ffffff',
+	},
+	robots: {
+		index: false,
+		follow: false,
+		googleBot: {
+			index: false,
+			follow: false,
+		},
 	},
 };
 
