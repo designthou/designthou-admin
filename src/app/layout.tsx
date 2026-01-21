@@ -26,15 +26,15 @@ export const metadata: Metadata = {
 	description: 'Designthou Admin pages',
 	icons: {
 		icon: [
-			{ url: '/admin/favicon.ico', sizes: 'any' },
-			{ url: '/admin/favicon.ico', sizes: 'image/x-icon' },
-			{ url: '/admin/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-			{ url: '/admin/favicon.svg', type: 'image/svg+xml' },
+			{ url: '/favicon/favicon.ico', sizes: 'any' },
+			{ url: '/favicon/favicon.ico', sizes: 'image/x-icon' },
+			{ url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+			{ url: '/favicon/favicon.svg', type: 'image/svg+xml' },
 		],
-		shortcut: '/admin/favicon.ico',
-		apple: '/admin/apple-touch-icon.png',
+		shortcut: '/favicon/favicon.ico',
+		apple: '/favicon/apple-touch-icon.png',
 	},
-	manifest: '/admin/site.webmanifest',
+	manifest: '/favicon/site.webmanifest',
 	appleWebApp: {
 		title: 'Designthou Admin',
 	},

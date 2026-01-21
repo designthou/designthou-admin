@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { House, Search } from 'lucide-react';
-import designthouSVG from '@/public/admin/favicon.svg';
+import designthouSVG from '@/public/favicon/favicon.svg';
 import { User } from '@supabase/supabase-js';
 import { Button, ProfileDropdown } from '@/components';
 import { linkWithManagableRoutes, linkWithRoutes, route } from '@/constants';

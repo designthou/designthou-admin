@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { ArrowRightIcon, Home, User, X } from 'lucide-react';
-import designthouSVG from '@/public/admin/favicon.svg';
+import designthouSVG from '@/public/favicon/favicon.svg';
 import { MotionBlock, Button, Menu } from '@/components';
 import { linkWithManagableRoutes, linkWithRoutes, route } from '@/constants';
 
