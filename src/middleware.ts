@@ -13,10 +13,8 @@ export async function middleware(request: NextRequest) {
 		return supabaseResponse;
 	}
 
-	if (!user) {
+	if (!user || user.user_metadata?.role !== 'admin') {
 		const redirectUrl = new URL(route.AUTH.LOGIN, request.url);
-
-		redirectUrl.searchParams.set('next', pathname);
 
 		return NextResponse.redirect(redirectUrl, {
 			headers: supabaseResponse.headers,
