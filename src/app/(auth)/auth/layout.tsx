@@ -5,6 +5,8 @@ import { Toaster } from 'sonner';
 import { SiteConfig } from '@/app/config';
 import { ReactQueryProvider } from '@/providers';
 import { route } from '@/constants';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
 	title: SiteConfig.title.AUTH,
@@ -18,11 +20,20 @@ export const viewport: Viewport = {
 	themeColor: '#ffffff',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const supabaseServer = await createClient();
+	const {
+		data: { user },
+	} = await supabaseServer.auth.getUser();
+
+	if (user) {
+		redirect(route.ADMIN.ROOT);
+	}
+
 	return (
 		<ReactQueryProvider>
 			<div className="flex flex-col justify-center min-h-screen mx-auto w-full p-4 bg-muted sm:p-8 lg:p-12">
