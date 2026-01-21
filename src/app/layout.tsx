@@ -37,6 +37,8 @@ export const metadata: Metadata = {
 	manifest: '/favicon/site.webmanifest',
 	appleWebApp: {
 		title: 'Designthou Admin',
+		capable: true,
+		statusBarStyle: 'black-translucent',
 	},
 	other: {
 		'msapplication-TileColor': '#ffffff',

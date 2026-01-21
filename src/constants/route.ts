@@ -14,7 +14,7 @@ const route = {
 		PRIVACY: 'https://designthou.com/privacy',
 	},
 	ADMIN: {
-		ROOT: '/',
+		ROOT: '/home',
 		DASHBOARD: '/dashboard',
 		MYPAGE: '/mypage',
 		NEWS: '/news',
